@@ -1,0 +1,25 @@
+@font-face{
+  font-family: BQN;
+  src: url(/BQN386.ttf) format('truetype');
+}
+pre, code {
+  font-family: BQN, monospace;
+  font-weight: normal;
+  font-size: 0.94em;
+  letter-spacing: 0.2;
+}
+pre.bqnrun {
+  padding: 0.5em;
+  white-space: pre-wrap;
+}
+body {
+  margin: 0ex 1ex;
+  padding: 0px;
+  background-color: white;
+  font-family: sans-serif;
+  text-size-adjust: none;
+  line-height: 1.4;
+  font-size: 18px;
+  color: #444;
+  margin:40px auto;
+}

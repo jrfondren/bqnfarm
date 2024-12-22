@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"> <!-- bqn.js breaks without this -->
+  <link rel="stylesheet" href="/prism.css">
+  <link rel="stylesheet" href="/site.css">
+  <script src="/prism.js"></script>
+  <title>Memoization in BQN</title>
+</head>
+<body>
+<h3>Memoization in BQN</h3>
+<p>This is mostly a POC use of bqn.js. Right-click to evaluate code and to clear code results.</p>
+<p>First, set some definitions by right-clicking this code block:</p>
+<pre class="bqnrun language-bqn"><code>Notify ← {𝕊:
+  •Out "memoizing"
+  •JS "(() => {document.querySelector('.memowarning').textContent = ''; 1})()"
+}
+_memo ← {F _𝕣: Notify@ ⋄ (•HashMap˜⟨⟩)⊸{𝕨.Has 𝕩 ? 𝕨.Get 𝕩; (⊢⊣𝕩⊸𝕨.Set) F 𝕩 }}
+
+Fib ← {
+  0: 1;
+  1: 1;
+  𝕊: (Fib 𝕩 - 1) + Fib 𝕩 - 2
+}⚇0
+Memoize ← {𝕊: Fib ↩ Fib _memo }
+</code></pre><pre class="bqnres"></pre>
+
+<p>Run the unmemoized function a few times:</p>
+<pre class="bqnrun language-bqn"><code># fast enough
+•Show Fib 0
+•Show Fib 5
+•Show Fib 15
+</code></pre><pre class="bqnres"></pre>
+
+<pre class="bqnrun language-bqn"><code># probably slow - spam a few clicks
+Fib 20
+</code></pre><pre class="bqnres"></pre>
+
+<p>Now, observe how memoization affects that.</p>
+<pre class="bqnrun language-bqn"><code>Memoize@
+</code></pre><pre class="bqnres"></pre>
+<p class="memowarning" style="color: red">if you run this <em>without</em> memoizing you'll probably have to kill the tab!</p>
+<pre class="bqnrun language-bqn"><code>Fib 40
+</code></pre><pre class="bqnres"></pre>
+<footer>
+  <script src="/bqn.js"></script>
+  <script src="/repl.js"></script>
+</footer>
+</body>
+</html>
