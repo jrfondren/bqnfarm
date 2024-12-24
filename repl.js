@@ -10,7 +10,9 @@ let pagebqn = bqn('•ReBQN {repl⇐"loose"}')
   sysvals.out  = (x,w) => { disp(req1str("•Out",x,w)); return x; }
   for (let i = 0; i < runs.length; i++) {
     runs[i].addEventListener('contextmenu', ev => {
-      let src = ev.target.innerText
+      // interesting option: with highlighting, allows right-clicking dirctly on distinct parts of code to evaluate it
+      //const src = ev.target.innerText
+      const src = document.querySelectorAll('.bqnrun')[i].innerText
       ev.preventDefault()
       running = i
       try {
