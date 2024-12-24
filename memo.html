@@ -11,7 +11,7 @@
 <h3>Memoization in BQN</h3>
 <p>This is mostly a POC use of bqn.js. Right-click to evaluate code and to clear code results.</p>
 <p>First, set some definitions by right-clicking this code block:</p>
-<pre class="bqnrun language-bqn"><code>Notify ← {𝕊:
+<pre contenteditable class="bqnrun language-bqn"><code>Notify ← {𝕊:
   •Out "memoizing"
   •JS "(() => {document.querySelector('.memowarning').textContent = ''; 1})()"
 }
@@ -26,21 +26,21 @@ Memoize ← {𝕊: Fib ↩ Fib _memo }
 </code></pre><pre class="bqnres"></pre>
 
 <p>Run the unmemoized function a few times:</p>
-<pre class="bqnrun language-bqn"><code># fast enough
+<pre contenteditable class="bqnrun language-bqn"><code># fast enough
 •Show Fib 0
 •Show Fib 5
 •Show Fib 15
 </code></pre><pre class="bqnres"></pre>
 
-<pre class="bqnrun language-bqn"><code># probably slow - spam a few clicks
+<pre contenteditable class="bqnrun language-bqn"><code># probably slow - spam a few clicks
 Fib 20
 </code></pre><pre class="bqnres"></pre>
 
 <p>Now, observe how memoization affects that.</p>
-<pre class="bqnrun language-bqn"><code>Memoize@
+<pre contenteditable class="bqnrun language-bqn"><code>Memoize@
 </code></pre><pre class="bqnres"></pre>
 <p class="memowarning" style="color: red">if you run this <em>without</em> memoizing you'll probably have to kill the tab!</p>
-<pre class="bqnrun language-bqn"><code>Fib 40
+<pre contenteditable class="bqnrun language-bqn"><code>Fib 40
 </code></pre><pre class="bqnres"></pre>
 <footer>
   <script src="/bqnfarm/bqn.js"></script>

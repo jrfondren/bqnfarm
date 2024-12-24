@@ -9,8 +9,8 @@ let pagebqn = bqn('•ReBQN {repl⇐"loose"}')
   sysvals.show = (x,w) => { disp(fmt(x)); return x; }
   sysvals.out  = (x,w) => { disp(req1str("•Out",x,w)); return x; }
   for (let i = 0; i < runs.length; i++) {
-    let src = runs[i].innerText
     runs[i].addEventListener('contextmenu', ev => {
+      let src = ev.target.innerText
       ev.preventDefault()
       running = i
       try {
