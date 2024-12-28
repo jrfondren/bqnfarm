@@ -46,6 +46,7 @@ Prism.languages.bqn = {
 	},
 	'word-name': {
 		pattern: /[A-Za-z_][\w¯∞π]*/,
+		greedy: true,
 		alias: 'symbol'
 	},
 	'word-number': {
