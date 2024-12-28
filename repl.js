@@ -17,7 +17,7 @@ let pagebqn = bqn('•ReBQN {repl⇐"loose"}')
       running = i
       try {
         // need 'out' set separately to avoid appending to pre-execution results[i]
-        let out = fmt(pagebqn(str(src)))
+        let out = runs[i].classList.contains("norebqn") ? fmt(bqn(str(src))) : fmt(pagebqn(str(src)))
         results[i].textContent += "\n" + out
       } catch(e) {
         let out = fmtErr(e)
